@@ -17,6 +17,7 @@ public class FruitService {
     public List<Fruit> getAllFruits() {
         return fruitRepository.findAll();
     }
+
     public Fruit getFruitById(int id) {
         Optional<Fruit> optionalFruit = fruitRepository.findById(id);
         return optionalFruit.orElse(null);

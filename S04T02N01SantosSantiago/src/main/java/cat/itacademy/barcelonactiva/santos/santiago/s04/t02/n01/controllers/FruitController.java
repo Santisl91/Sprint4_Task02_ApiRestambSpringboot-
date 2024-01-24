@@ -9,38 +9,32 @@ import cat.itacademy.barcelonactiva.santos.santiago.s04.t02.n01.model.services.F
 import java.util.List;
 
 @RestController
-@RequestMapping("/fruita")
+@RequestMapping("/fruit")
 public class FruitController {
 
     @Autowired
     private FruitService fruitService;
 
     @PostMapping("/add")
-    public ResponseEntity<String> addFruita(@RequestBody Fruit fruita) {
-        // Lógica para agregar una fruta
-        // ...
+    public ResponseEntity<String> addFruit(@RequestBody Fruit fruit) {
 
-        return ResponseEntity.ok("Fruita añadida con éxito");
+        return ResponseEntity.ok("Fruit added successfully");
     }
 
     @PutMapping("/update")
-    public ResponseEntity<String> updateFruita(@RequestBody Fruit fruita) {
-        // Lógica para actualizar una fruta
-        // ...
+    public ResponseEntity<String> updateFruit(@RequestBody Fruit fruit) {
 
-        return ResponseEntity.ok("Fruita actualizada con éxito");
+        return ResponseEntity.ok("Fruit updated successfully");
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteFruita(@PathVariable int id) {
-        // Lógica para eliminar una fruta por ID
-        // ...
+    public ResponseEntity<String> deleteFruit(@PathVariable int id) {
 
-        return ResponseEntity.ok("Fruita eliminada con éxito");
+        return ResponseEntity.ok("Fruit deleted successfully");
     }
 
     @GetMapping("/getOne/{id}")
-    public ResponseEntity<Fruit> getOneFruita(@PathVariable int id) {
+    public ResponseEntity<Fruit> getOneFruit(@PathVariable int id) {
         Fruit fruit = fruitService.getFruitById(id);
 
         if (fruit != null) {
@@ -54,5 +48,13 @@ public class FruitController {
     public ResponseEntity<  List<Fruit>> getAllFruits() {
         List<Fruit> fruits = fruitService.getAllFruits();
         return ResponseEntity.ok(fruits);
+    }
+
+    public FruitService getFruitService() {
+        return fruitService;
+    }
+
+    public void setFruitService(FruitService fruitService) {
+        this.fruitService = fruitService;
     }
 }
